@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.app }}-deployment
+  namespace: {{.Values.metadata.namespace}}
+  labels:
+        app: {{ .Values.app }}
+        team: {{ .Values.team }}
+        {{- with .Values.podLabels }}
+        {{- range $key, $value := . }}
+        {{ $key }}: {{ $value }}
+        {{- end }}
+        {{- end }}
+spec:
+  replicas: {{.Values.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{.Values.app}}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app }}
+        team: {{ .Values.team }}
+        {{- with .Values.podLabels }}
+        {{- range $key, $value := . }}
+        {{ $key }}: {{ $value }}
+        {{- end }}
+        {{- end }}
+    spec:
+      containers:
+      - name: {{.Values.app}}
+        image: {{.Values.image.repository}}:{{.Values.image.tag}}
+        ports:
+        - containerPort: 8080
