@@ -15,7 +15,7 @@ image:
   repository: anoopka/go-web-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.0"
+  tag: "10754850194"
 
 imagePullSecrets: []
 nameOverride: ""
