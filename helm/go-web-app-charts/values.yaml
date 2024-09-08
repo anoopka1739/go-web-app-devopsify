@@ -3,13 +3,14 @@
 # Declare variables to be passed into your templates.
 app: "go-web-app"
 team: "devops"
+owner: "anoopka"
 namespace: app-ns-helm
 metadata:
   name: go-web-app-deployment
   namespace: app-ns-helm
 
 
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: anoopka/go-web-app
@@ -36,6 +37,7 @@ podAnnotations: {}
 podLabels: 
   app: "go-web-app"
   team: "devops"
+  owner: "anoopka"
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -82,7 +84,7 @@ resources: {}
   #   cpu: 100m
   #   memory: 128Mi
   # requests:
-  #   cpu: 100m
+  #   cpu: 60m
   #   memory: 128Mi
 
 livenessProbe:
