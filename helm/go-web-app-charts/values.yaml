@@ -10,7 +10,7 @@ metadata:
   namespace: app-ns-helm
 
 
-replicaCount: 2
+replicaCount: 0
 
 image:
   repository: anoopka/go-web-app
